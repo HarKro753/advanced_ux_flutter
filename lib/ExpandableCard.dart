@@ -162,15 +162,13 @@ class ExpandableCardState extends State<ExpandableCard>
                       (dragDistance * 0.05).clamp(0, 20),
                 );
 
-                print("DragScale: $dragScale");
-
                 return Positioned(
                   left: rect.left + dragOffset.dx * _expandAnimation.value,
                   top: rect.top + dragOffset.dy * _expandAnimation.value,
                   width: rect.width,
                   height: rect.height,
                   child: Transform.scale(
-                    scale: 1.0,
+                    scale: dragScale,
                     child: GestureDetector(
                       onTap: _expandAnimation.value == 1.0
                           ? _collapseCard
