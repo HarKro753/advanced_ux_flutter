@@ -1,5 +1,5 @@
-import 'package:animation_test/ChatDetail.dart';
-import 'package:animation_test/ChatsView.dart';
+import 'package:animation_test/ChatDetail/ChatDetail.dart';
+import 'package:animation_test/ChatDetail/ChatsView.dart';
 import 'package:flutter/material.dart';
 
 class AppBarTransition extends StatefulWidget {

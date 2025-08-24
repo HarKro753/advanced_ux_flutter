@@ -1,5 +1,5 @@
-import 'package:animation_test/AppBarTransition.dart';
-import 'package:animation_test/ChatsView.dart';
+import 'package:animation_test/ChatDetail/AppBarTransition.dart';
+import 'package:animation_test/ChatDetail/ChatsView.dart';
 import 'package:animation_test/ExpandableCard.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:animation_test/Widget/ChatItem.dart';
+import 'package:animation_test/ChatDetail/ChatItem.dart';
 import 'package:flutter/material.dart';
 
 class ChatsView extends StatefulWidget {

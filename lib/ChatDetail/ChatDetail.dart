@@ -10,7 +10,7 @@ class ChatDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chat Detail'),
+        title: Text('Chat Detail $index'),
         leading: IconButton(
           onPressed: onBack,
           icon: Icon(Icons.arrow_back_ios_new),
