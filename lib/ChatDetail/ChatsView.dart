@@ -1,25 +1,31 @@
 import 'package:animation_test/ChatListItem.dart';
 import 'package:flutter/material.dart';
 
-class ChatsView extends StatefulWidget {
-  const ChatsView({super.key, required this.onChatTap});
-
+class ChatsView extends StatelessWidget {
   final Function(int) onChatTap;
+  final double animationProgress;
 
-  @override
-  State<ChatsView> createState() => _ChatsViewState();
-}
+  ChatsView({
+    super.key,
+    required this.onChatTap,
+    required this.animationProgress,
+  });
 
-class _ChatsViewState extends State<ChatsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
-        ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: Opacity(
+          opacity: 1 - animationProgress,
+          child: AppBar(
+            leading: IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+            actions: [
+              IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+              IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+            ],
+          ),
+        ),
       ),
       body: ListView(
         children: [
@@ -37,7 +43,10 @@ class _ChatsViewState extends State<ChatsView> {
           Container(
             color: Colors.blue,
             height: 50,
-            margin: EdgeInsets.symmetric(horizontal: 8),
+            margin: EdgeInsets.only(
+              left: 8,
+              right: 8 + animationProgress * MediaQuery.of(context).size.width,
+            ),
           ),
 
           const SizedBox(height: 16),
@@ -49,6 +58,6 @@ class _ChatsViewState extends State<ChatsView> {
   }
 
   void _onChatTap(int index) {
-    widget.onChatTap(index);
+    onChatTap(index);
   }
 }
