@@ -92,9 +92,10 @@ class ExpandableCardState extends State<ExpandableCard>
       body: Stack(
         children: [
           // Liste mit Karten
-          ListView.builder(
-            padding: const EdgeInsets.symmetric(vertical: 20),
+          ListView.separated(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             itemCount: 10,
+            separatorBuilder: (context, index) => const SizedBox(height: 16),
             itemBuilder: (context, index) {
               // Erstelle einen Key für jede Karte
               cardKeys[index] ??= GlobalKey();
@@ -103,6 +104,7 @@ class ExpandableCardState extends State<ExpandableCard>
                 onTap: () => _expandCard(index),
                 child: AnimatedBuilder(
                   animation: _expandController,
+
                   builder: (context, child) {
                     final opacity = expandedIndex == index
                         ? (1.0 - _expandAnimation.value)

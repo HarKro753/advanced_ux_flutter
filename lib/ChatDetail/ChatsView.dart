@@ -30,11 +30,21 @@ class ChatsView extends StatelessWidget {
       body: ListView(
         children: [
           Container(
+            alignment: Alignment.centerLeft,
             margin: EdgeInsets.symmetric(horizontal: 8),
-            child: Text(
-              'Chats',
-              textAlign: TextAlign.start,
-              style: TextStyle(color: Colors.black, fontSize: 42),
+            child: Opacity(
+              opacity: (1 - animationProgress * 2).clamp(0, 1),
+              child: Transform.translate(
+                offset: Offset(animationProgress * 10, animationProgress * -50),
+                child: Transform.scale(
+                  scale: 1 - animationProgress * 0.2,
+                  child: Text(
+                    'Chats',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.black, fontSize: 42),
+                  ),
+                ),
+              ),
             ),
           ),
 
@@ -45,7 +55,9 @@ class ChatsView extends StatelessWidget {
             height: 50,
             margin: EdgeInsets.only(
               left: 8,
-              right: 8 + animationProgress * MediaQuery.of(context).size.width,
+              right:
+                  8 +
+                  animationProgress * MediaQuery.of(context).size.width * 0.95,
             ),
           ),
 

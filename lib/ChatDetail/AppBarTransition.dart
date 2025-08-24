@@ -41,10 +41,8 @@ class _AppBarTransitionState extends State<AppBarTransition>
     final screenWidth = MediaQuery.of(context).size.width;
     final deltaPercent = delta / screenWidth;
 
-    // Direkte Manipulation: nach rechts swipen = schließen (Wert verringern)
     final newValue = (_controller.value - deltaPercent).clamp(0.0, 1.0);
 
-    print('Controller value: $newValue');
     _controller.value = newValue;
   }
 
