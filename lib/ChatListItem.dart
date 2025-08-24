@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// ChatItemList generates a list of ChatItems only outside connection is the onChatTap
+///
+/// @param onChatTap: Function(int) - Callback when a chat is tapped
 class ChatItemList extends StatelessWidget {
   final Function(int)? onChatTap;
 
